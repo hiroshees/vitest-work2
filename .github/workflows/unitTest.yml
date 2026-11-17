@@ -21,8 +21,15 @@ jobs:
       - name: eslint
         run: pnpm run lint
       - name: type-check
-        run: pnpm run type-check
+        run: pnpm run type-check      
+      - name: cache playwright browsers
+        id: cache-playwright
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
       - name: install playwright
+        if: steps.cache-playwright.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
       - name: vitest
         run: pnpm run test

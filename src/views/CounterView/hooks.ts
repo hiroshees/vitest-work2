@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { type Mode } from '@/views/CounterView/types';
 
+
 export const useCounterView = () => {
   const [count, setCount] = useState(0);
   const [selectMode, setSelectMode] = useState<Mode>('both');
@@ -17,6 +18,10 @@ export const useCounterView = () => {
     setSelectMode(mode);
   };
 
+  const testFunction = (n: number) => {
+    return n + 1;
+  };
+
   useEffect(() => {
     console.log('現在のカウント:', count);
   }, [count]);
@@ -27,5 +32,6 @@ export const useCounterView = () => {
     handleMinusButtonClick,
     selectMode,
     handleChangeMode,
+    testFunction,
   };
 };

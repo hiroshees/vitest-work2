@@ -5,11 +5,12 @@ const repositoryName = 'vitest-work2';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: 'export',
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  // cacheComponents: true,
+  // partialPrefetching: true,
   reactCompiler: true,
   turbopack: {
     rules: {
@@ -19,7 +20,6 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  output: 'export',
   ...(isProd
     ? {
         basePath: `/${repositoryName}`,

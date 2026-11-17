@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function CounterView() {
   const [count, setCount] = useState(0);
@@ -8,9 +8,15 @@ export function CounterView() {
     setCount(count + 1);
   };
   const handleMinusButtonClick = () => {
+    console.log('マイナスボタンがおされた'); // 追加
     if (count <= 0) return;
     setCount(count - 1);
   };
+
+  useEffect(() => {
+    // 追加
+    console.log('現在のカウント:', count); // 追加
+  }, [count]); // 追加
 
   return (
     <div style={{ maxWidth: 400, margin: '40px auto', textAlign: 'center' }}>

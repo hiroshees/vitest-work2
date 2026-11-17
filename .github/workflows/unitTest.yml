@@ -21,4 +21,8 @@ jobs:
       - name: eslint
         run: pnpm run lint
       - name: type-check
-        run: npm run type-check
+        run: pnpm run type-check
+      - name: install playwright
+        run: npx playwright install --with-deps
+      - name: vitest
+        run: pnpm run test

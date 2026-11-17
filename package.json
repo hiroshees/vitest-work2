@@ -10,6 +10,7 @@
     "lint:fix": "eslint --fix",
     "type-check": "next typegen && tsc --noEmit",
     "test": "vitest run",
+    "test:coverage": "vitest --coverage run",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
